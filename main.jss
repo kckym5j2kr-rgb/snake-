@@ -1,4 +1,6 @@
 // Culture Snake / Comecocos with quiz questions
+
+// Canvas and UI
 const canvas = document.getElementById("game");
 const ctx = canvas.getContext("2d");
 
@@ -19,7 +21,7 @@ const tilesY = canvas.height / tileSize;
 
 // Game state
 let snake = [];
-let direction = { x: 1, y: 0 }; // start moving right
+let direction = { x: 1, y: 0 };   // start moving right
 let nextDirection = { x: 1, y: 0 };
 let food = { x: 5, y: 5 };
 let score = 0;
@@ -49,9 +51,16 @@ const questions = [
 let currentQuestionIndex = -1;
 let pendingQuestion = false;
 
-// Helpers
+// -------- Helpers --------
 function randomInt(min, maxExclusive) {
   return Math.floor(Math.random() * (maxExclusive - min)) + min;
+}
+
+// Optional vibration helper (safe on unsupported devices)
+function vibrate(pattern) {
+  if ("vibrate" in navigator) {
+    navigator.vibrate(pattern);
+  }
 }
 
 function resetGame() {
@@ -86,6 +95,7 @@ function placeFood() {
   }
 }
 
+// -------- Main update & draw --------
 function update() {
   if (isGameOver || pendingQuestion) return;
 
@@ -200,7 +210,7 @@ function gameLoop() {
   update();
 }
 
-// Quiz logic
+// -------- Quiz logic --------
 function showNextQuestion() {
   if (questions.length === 0) return;
 
@@ -247,13 +257,15 @@ function handleAnswer(selectedIndex) {
     }
   });
 
-  // Feedback + score tweak
+  // Feedback + score tweak + vibration
   if (isCorrect) {
     score += 5;
     quizFeedbackEl.textContent = "Correct! +5 points.";
+    vibrate(120);
   } else {
     score = Math.max(0, score - 5);
     quizFeedbackEl.textContent = "Not quite. −5 points.";
+    vibrate([80, 60, 80]);
   }
   scoreEl.textContent = score;
 
@@ -268,7 +280,7 @@ function handleAnswer(selectedIndex) {
   }, 900);
 }
 
-// Controls
+// -------- Controls & start button --------
 window.addEventListener("keydown", e => {
   const key = e.key;
   if (["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(key)) {
@@ -295,5 +307,4 @@ startBtn.addEventListener("click", () => {
 
 // Initial static draw
 resetGame();
-
 
