@@ -214,19 +214,35 @@
 
     /* SOLO móvil: layout y botones táctiles */
     @media (max-width: 600px) {
-      #game-row {
-        flex-direction: column;
-        align-items: center;
-      }
+  #game-row {
+    flex-direction: column;
+    align-items: center;
+  }
 
-      #level-bar {
-        height: 120px;
-      }
+  /* Smaller canvas on phones */
+  #game {
+    width: 260px;
+    height: 260px;
+  }
 
-      #game {
-        max-width: 100%;
-        height: auto;
-      }
+  /* Smaller progress bar */
+  #level-bar {
+    height: 90px;
+  }
+
+  /* Smaller touch buttons */
+  .touch-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+
+  /* Slightly tighter gaps */
+  .touch-row {
+    gap: 6px;
+  }
+}
+
 
       #touch-controls {
         display: block;
