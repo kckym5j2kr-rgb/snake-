@@ -36,6 +36,35 @@
       font-size: 1rem;
     }
 
+    #controls {
+      margin-bottom: 8px;
+      font-size: 0.9rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #topic-select {
+      padding: 4px 6px;
+      border-radius: 4px;
+      border: 1px solid #1affff;
+      background: #020230;
+      color: #fefefe;
+    }
+
+    #topic-label {
+      opacity: 0.9;
+    }
+
+    #topic-warning {
+      font-size: 0.8rem;
+      color: #ff8080;
+      min-height: 1em;
+      text-align: center;
+    }
+
     #game {
       background: #020230;
       border: 2px solid #1affff;
@@ -125,6 +154,17 @@
   <div id="scoreboard">
     Score: <span id="score">0</span> · High score: <span id="high-score">0</span>
   </div>
+
+  <div id="controls">
+    <span id="topic-label">Choose a topic:</span>
+    <select id="topic-select">
+      <option value="">-- Select --</option>
+      <option value="geography">Geography</option>
+      <option value="culture">Culture</option>
+      <option value="history">History</option>
+    </select>
+  </div>
+  <div id="topic-warning"></div>
 
   <canvas id="game" width="400" height="400"></canvas>
 
