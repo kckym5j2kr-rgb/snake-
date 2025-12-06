@@ -39,7 +39,7 @@ let isGameOver = false;
 
 // Progress (correct answers in this run)
 let correctThisRun = 0;
-const maxProgressQuestions = 20;
+const maxProgressQuestions = 100;
 
 // Quiz state loaded from JSON
 let questionsByCategory = {};
