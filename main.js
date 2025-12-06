@@ -41,6 +41,10 @@ let isGameOver = false;
 let correctThisRun = 0;
 const maxProgressQuestions = 100;
 
+
+let currentLevel = 1;
+const maxLevels = 10;
+
 // Quiz state loaded from JSON
 let questionsByCategory = {};
 let currentCategoryKey = "";
@@ -80,6 +84,8 @@ function setProgress(correctCount) {
   levelFill.style.height = percent + "%";
   levelText.textContent = percent + "%";
 }
+
+
 
 
 function resetGame() {
