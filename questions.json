@@ -1,108 +1,107 @@
 {
-  "history": {
-    "level1": [
-      {
-        "text": "In which city was the ancient Colosseum built?",
-        "options": ["Athens", "Rome", "Alexandria"],
-        "correctIndex": 1
-      },
-      {
-        "text": "Which empire built a long wall in northern China now known as the Great Wall?",
-        "options": ["Roman Empire", "Chinese dynasties", "Ottoman Empire"],
-        "correctIndex": 1
-      },
-      {
-        "text": "Which famous ship sank in 1912 on its first voyage after hitting an iceberg?",
-        "options": ["Titanic", "Bismarck", "Endeavour"],
-        "correctIndex": 0
-      },
-      {
-        "text": "Who is often called the \"Maid of Orléans\" for her role in the Hundred Years' War?",
-        "options": ["Joan of Arc", "Cleopatra", "Catherine the Great"],
-        "correctIndex": 0
-      },
-      {
-        "text": "Which ancient civilization built the pyramids at Giza?",
-        "options": ["Aztecs", "Ancient Egyptians", "Vikings"],
-        "correctIndex": 1
-      },
-      {
-        "text": "The city of Machu Picchu is linked to which civilization?",
-        "options": ["Inca", "Maya", "Persian"],
-        "correctIndex": 0
-      },
-      {
-        "text": "Which famous scientist formulated the theory of relativity in the early 20th century?",
-        "options": ["Isaac Newton", "Albert Einstein", "Nikola Tesla"],
-        "correctIndex": 1
-      },
-      {
-        "text": "Which revolution in the late 18th century led to the fall of the monarchy in France?",
-        "options": ["American Revolution", "French Revolution", "Russian Revolution"],
-        "correctIndex": 1
-      },
-      {
-        "text": "Which ancient city was famously destroyed by a volcanic eruption of Mount Vesuvius in 79 CE?",
-        "options": ["Pompeii", "Carthage", "Babylon"],
-        "correctIndex": 0
-      },
-      {
-        "text": "Which conflict is often called the \"Great War\" before the term World War I became common?",
-        "options": ["Crimean War", "World War I", "Thirty Years' War"],
-        "correctIndex": 1
-      }
-    ],
-    "level2": [
-      {
-        "text": "The Silk Road mainly facilitated trade between Europe and which broad region?",
-        "options": ["Oceania", "Asia", "Sub‑Saharan Africa"],
-        "correctIndex": 1
-      },
-      {
-        "text": "Which empire was ruled for a long time from Constantinople, later called Istanbul?",
-        "options": ["Byzantine Empire", "Mongol Empire", "Mughal Empire"],
-        "correctIndex": 0
-      },
-      {
-        "text": "Which 15th‑century invention in Europe greatly increased the spread of printed books?",
-        "options": ["Magnetic compass", "Printing press", "Steam engine"],
-        "correctIndex": 1
-      },
-      {
-        "text": "The \"Black Death\" that struck Europe in the 14th century was primarily which disease?",
-        "options": ["Bubonic plague", "Smallpox", "Cholera"],
-        "correctIndex": 0
-      },
-      {
-        "text": "Which leader carried out a large series of military campaigns across Europe in the early 19th century?",
-        "options": ["Julius Caesar", "Napoleon Bonaparte", "Genghis Khan"],
-        "correctIndex": 1
-      },
-      {
-        "text": "Which early civilization developed in the fertile region between the Tigris and Euphrates rivers?",
-        "options": ["Mesopotamia", "Indus Valley", "Han China"],
-        "correctIndex": 0
-      },
-      {
-        "text": "Which event in 1929 triggered a worldwide economic crisis often called the Great Depression?",
-        "options": ["Oil embargo", "Stock market crash in New York", "Gold standard reform"],
-        "correctIndex": 1
-      },
-      {
-        "text": "Which African country successfully resisted full European colonization under Emperor Menelik II, winning a key battle at Adwa in 1896?",
-        "options": ["Ethiopia", "Ghana", "Mozambique"],
-        "correctIndex": 0
-      },
-      {
-        "text": "Which 20th‑century conflict is associated with trench warfare on the Western Front in Europe?",
-        "options": ["World War I", "World War II", "Korean War"],
-        "correctIndex": 0
-      },
-      {
-        "text": "Which ancient code of laws is associated with a Babylonian ruler and is famous for the phrase \"an eye for an eye\"?",
-        "options": ["Code of Hammurabi", "Twelve Tables", "Magna Carta"],
-        "correctIndex": 0
-      }
+  "geography": [],
+  "culture": [],
+  "history": [
+    {
+      "text": "In which city was the ancient Colosseum built?",
+      "options": ["Athens", "Rome", "Alexandria"],
+      "correctIndex": 1
+    },
+    {
+      "text": "Which empire built a long wall in northern China now known as the Great Wall?",
+      "options": ["Roman Empire", "Chinese dynasties", "Ottoman Empire"],
+      "correctIndex": 1
+    },
+    {
+      "text": "Which famous ship sank in 1912 on its first voyage after hitting an iceberg?",
+      "options": ["Titanic", "Bismarck", "Endeavour"],
+      "correctIndex": 0
+    },
+    {
+      "text": "Who is often called the \"Maid of Orléans\" for her role in the Hundred Years' War?",
+      "options": ["Joan of Arc", "Cleopatra", "Catherine the Great"],
+      "correctIndex": 0
+    },
+    {
+      "text": "Which ancient civilization built the pyramids at Giza?",
+      "options": ["Aztecs", "Ancient Egyptians", "Vikings"],
+      "correctIndex": 1
+    },
+    {
+      "text": "The city of Machu Picchu is linked to which civilization?",
+      "options": ["Inca", "Maya", "Persian"],
+      "correctIndex": 0
+    },
+    {
+      "text": "Which famous scientist formulated the theory of relativity?",
+      "options": ["Isaac Newton", "Albert Einstein", "Nikola Tesla"],
+      "correctIndex": 1
+    },
+    {
+      "text": "Which revolution in the late 18th century led to the fall of the monarchy in France?",
+      "options": ["American Revolution", "French Revolution", "Russian Revolution"],
+      "correctIndex": 1
+    },
+    {
+      "text": "Which ancient city was destroyed by a volcanic eruption of Mount Vesuvius in 79 CE?",
+      "options": ["Pompeii", "Carthage", "Babylon"],
+      "correctIndex": 0
+    },
+    {
+      "text": "Which conflict was later called World War I?",
+      "options": ["Crimean War", "Great War", "Thirty Years' War"],
+      "correctIndex": 1
+    },
+    {
+      "text": "The Silk Road mainly connected Europe with which broad region?",
+      "options": ["Oceania", "Asia", "Sub-Saharan Africa"],
+      "correctIndex": 1
+    },
+    {
+      "text": "Which empire was ruled for a long time from Constantinople, later called Istanbul?",
+      "options": ["Byzantine Empire", "Mongol Empire", "Mughal Empire"],
+      "correctIndex": 0
+    },
+    {
+      "text": "Which 15th-century invention in Europe greatly increased the spread of printed books?",
+      "options": ["Magnetic compass", "Printing press", "Steam engine"],
+      "correctIndex": 1
+    },
+    {
+      "text": "The \"Black Death\" that struck Europe in the 14th century was mainly which disease?",
+      "options": ["Bubonic plague", "Smallpox", "Cholera"],
+      "correctIndex": 0
+    },
+    {
+      "text": "Which leader carried out large military campaigns across Europe in the early 19th century?",
+      "options": ["Julius Caesar", "Napoleon Bonaparte", "Genghis Khan"],
+      "correctIndex": 1
+    },
+    {
+      "text": "Which early civilization developed in the region between the Tigris and Euphrates rivers?",
+      "options": ["Mesopotamia", "Indus Valley", "Han China"],
+      "correctIndex": 0
+    },
+    {
+      "text": "Which event in 1929 triggered a worldwide economic crisis often called the Great Depression?",
+      "options": ["Oil embargo", "Stock market crash in New York", "Gold standard reform"],
+      "correctIndex": 1
+    },
+    {
+      "text": "Which African country resisted full European colonization and won the Battle of Adwa in 1896?",
+      "options": ["Ethiopia", "Ghana", "Mozambique"],
+      "correctIndex": 0
+    },
+    {
+      "text": "Which 20th-century conflict is strongly associated with trench warfare on the Western Front?",
+      "options": ["World War I", "World War II", "Korean War"],
+      "correctIndex": 0
+    },
+    {
+      "text": "Which ancient code of laws is associated with a Babylonian ruler and the phrase \"an eye for an eye\"?",
+      "options": ["Code of Hammurabi", "Twelve Tables", "Magna Carta"],
+      "correctIndex": 0
     }
-  }
+  ]
 }
+
