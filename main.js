@@ -1,4 +1,4 @@
-// Culture Snake / Comecocos with quiz questions and topics
+// Culture Snake / Comecocos with quiz questions, topics and progress bar
 
 // Canvas and UI
 const canvas = document.getElementById("game");
@@ -11,12 +11,9 @@ const startBtn = document.getElementById("start-btn");
 const topicSelect = document.getElementById("topic-select");
 const topicWarning = document.getElementById("topic-warning");
 
+// Level / progress bar
 const levelFill = document.getElementById("level-fill");
 const levelText = document.getElementById("level-text");
-
-let currentLevel = 1;
-const maxLevels = 10;
-
 
 // Quiz DOM
 const quizModal = document.getElementById("quiz-modal");
@@ -40,9 +37,11 @@ let gameInterval = null;
 let gameSpeedMs = 120;
 let isGameOver = false;
 
-// Quiz state
+// Progress (correct answers in this run)
+let correctThisRun = 0;
+const maxProgressQuestions = 20; // full bar at 20 correct answers
 
-// ---- Quiz state loaded from JSON ----
+// Quiz state loaded from JSON
 let questionsByCategory = {};
 let currentCategoryKey = "";
 let currentCategoryQuestions = [];
@@ -61,25 +60,25 @@ fetch("questions.json")
     console.error("Error loading questions:", err);
   });
 
-
 // -------- Helpers --------
 function randomInt(min, maxExclusive) {
   return Math.floor(Math.random() * (maxExclusive - min)) + min;
 }
-
-function setLevel(newLevel) {
-  currentLevel = Math.max(1, Math.min(maxLevels, newLevel));
-  const percent = (currentLevel / maxLevels) * 100;
-  levelFill.style.height = percent + "%";
-  levelText.textContent = currentLevel + " / " + maxLevels;
-}
-
 
 // Optional vibration helper (safe on unsupported devices)
 function vibrate(pattern) {
   if ("vibrate" in navigator) {
     navigator.vibrate(pattern);
   }
+}
+
+// Progress bar helper
+function setProgress(correctCount) {
+  correctThisRun = correctCount;
+  const capped = Math.min(correctThisRun, maxProgressQuestions);
+  const percent = (capped / maxProgressQuestions) * 100;
+  levelFill.style.height = percent + "%";
+  levelText.textContent = capped + " / " + maxProgressQuestions;
 }
 
 function resetGame() {
@@ -96,6 +95,9 @@ function resetGame() {
   nextDirection = { x: 1, y: 0 };
   isGameOver = false;
   pendingQuestion = false;
+
+  correctThisRun = 0;
+  setProgress(0);
 
   placeFood();
   drawGame();
@@ -278,6 +280,8 @@ function handleAnswer(selectedIndex) {
 
   if (isCorrect) {
     score += 5;
+    correctThisRun += 1;
+    setProgress(correctThisRun);
     quizFeedbackEl.textContent = "Correct! +5 points.";
     vibrate(120);
   } else {
@@ -316,6 +320,11 @@ window.addEventListener("keydown", e => {
 });
 
 startBtn.addEventListener("click", () => {
+  if (!questionsLoaded) {
+    topicWarning.textContent = "Questions are still loading. Please wait a moment.";
+    return;
+  }
+
   const selected = topicSelect.value;
   if (!selected) {
     topicWarning.textContent = "Please choose a topic before starting.";
@@ -324,6 +333,9 @@ startBtn.addEventListener("click", () => {
   topicWarning.textContent = "";
 
   currentCategoryKey = selected;
+
+  // For now: expect questions.json to have top-level keys: geography, culture, history
+  // and each key to hold an array of questions.
   currentCategoryQuestions = questionsByCategory[currentCategoryKey] || [];
   currentQuestionIndex = -1;
 
@@ -334,3 +346,4 @@ startBtn.addEventListener("click", () => {
 
 // Initial static draw
 resetGame();
+
