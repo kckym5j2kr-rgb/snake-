@@ -1,13 +1,15 @@
-// Culture Snake / Comecocos with quiz questions
+// Culture Snake / Comecocos with quiz questions and topics
 
 // Canvas and UI
 const canvas = document.getElementById("game");
 const ctx = canvas.getContext("2d");
 
-console.log("game started")
 const scoreEl = document.getElementById("score");
 const highScoreEl = document.getElementById("high-score");
 const startBtn = document.getElementById("start-btn");
+
+const topicSelect = document.getElementById("topic-select");
+const topicWarning = document.getElementById("topic-warning");
 
 // Quiz DOM
 const quizModal = document.getElementById("quiz-modal");
@@ -32,23 +34,62 @@ let gameSpeedMs = 120;
 let isGameOver = false;
 
 // Quiz state
-const questions = [
-  {
-    text: "Which city is famous for La Sagrada Família?",
-    options: ["Madrid", "Barcelona", "Seville"],
-    correctIndex: 1
-  },
-  {
-    text: "Which route is known as a major pilgrimage path to Santiago de Compostela?",
-    options: ["Camino de Santiago", "Via Francigena", "Ruta de la Plata"],
-    correctIndex: 0
-  },
-  {
-    text: "Which Spanish islands are a major tourism hub in the Atlantic?",
-    options: ["Balearic Islands", "Canary Islands", "Azores"],
-    correctIndex: 1
-  }
-];
+const questionsByCategory = {
+  geography: [
+    {
+      text: "Which river flows through Cairo?",
+      options: ["Nile", "Amazon", "Danube"],
+      correctIndex: 0
+    },
+    {
+      text: "Which country has the largest land area?",
+      options: ["Canada", "Russia", "China"],
+      correctIndex: 1
+    },
+    {
+      text: "Which city lies on two continents, Europe and Asia?",
+      options: ["Istanbul", "Athens", "Cairo"],
+      correctIndex: 0
+    }
+  ],
+  culture: [
+    {
+      text: "Which country is famous for the Day of the Dead celebration?",
+      options: ["Mexico", "Japan", "Italy"],
+      correctIndex: 0
+    },
+    {
+      text: "Which genre is associated with reggae music?",
+      options: ["Jamaica", "Brazil", "South Africa"],
+      correctIndex: 0
+    },
+    {
+      text: "Which city is widely known for its opera house shaped like white sails?",
+      options: ["Sydney", "Vienna", "Milan"],
+      correctIndex: 0
+    }
+  ],
+  history: [
+    {
+      text: "In which century did the French Revolution begin?",
+      options: ["17th century", "18th century", "19th century"],
+      correctIndex: 1
+    },
+    {
+      text: "Which empire built the Colosseum in Rome?",
+      options: ["Greek Empire", "Roman Empire", "Ottoman Empire"],
+      correctIndex: 1
+    },
+    {
+      text: "The Silk Road mainly connected Europe with which region?",
+      options: ["Africa", "Oceania", "Asia"],
+      correctIndex: 2
+    }
+  ]
+};
+
+let currentCategoryKey = "";
+let currentCategoryQuestions = [];
 let currentQuestionIndex = -1;
 let pendingQuestion = false;
 
@@ -144,6 +185,7 @@ function update() {
   drawGame();
 }
 
+// -------- Drawing --------
 function drawGame() {
   // Clear board
   ctx.fillStyle = "#020230";
@@ -190,12 +232,12 @@ function drawGame() {
   });
 }
 
+// -------- Game over --------
 function handleGameOver() {
   isGameOver = true;
   clearInterval(gameInterval);
   gameInterval = null;
 
-  // Dim board and show message
   ctx.fillStyle = "rgba(0,0,0,0.5)";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
@@ -213,19 +255,19 @@ function gameLoop() {
 
 // -------- Quiz logic --------
 function showNextQuestion() {
-  if (questions.length === 0) return;
+  if (!currentCategoryQuestions || currentCategoryQuestions.length === 0) {
+    return;
+  }
 
   pendingQuestion = true;
 
-  // Pause loop
   if (gameInterval) {
     clearInterval(gameInterval);
     gameInterval = null;
   }
 
-  // Cycle through questions
-  currentQuestionIndex = (currentQuestionIndex + 1) % questions.length;
-  const q = questions[currentQuestionIndex];
+  currentQuestionIndex = (currentQuestionIndex + 1) % currentCategoryQuestions.length;
+  const q = currentCategoryQuestions[currentQuestionIndex];
 
   quizQuestionEl.textContent = q.text;
   quizOptionsEl.innerHTML = "";
@@ -243,10 +285,9 @@ function showNextQuestion() {
 }
 
 function handleAnswer(selectedIndex) {
-  const q = questions[currentQuestionIndex];
+  const q = currentCategoryQuestions[currentQuestionIndex];
   const isCorrect = selectedIndex === q.correctIndex;
 
-  // Disable clicking after first choice and highlight buttons
   const buttons = quizOptionsEl.querySelectorAll(".quiz-option");
   buttons.forEach((btn, idx) => {
     btn.disabled = true;
@@ -258,7 +299,6 @@ function handleAnswer(selectedIndex) {
     }
   });
 
-  // Feedback + score tweak + vibration
   if (isCorrect) {
     score += 5;
     quizFeedbackEl.textContent = "Correct! +5 points.";
@@ -270,7 +310,6 @@ function handleAnswer(selectedIndex) {
   }
   scoreEl.textContent = score;
 
-  // Hide modal after short delay, then resume game
   setTimeout(() => {
     quizModal.style.display = "none";
     pendingQuestion = false;
@@ -288,7 +327,6 @@ window.addEventListener("keydown", e => {
     e.preventDefault();
   }
 
-  // Disallow 180-degree turns
   if (key === "ArrowUp" && direction.y !== 1) {
     nextDirection = { x: 0, y: -1 };
   } else if (key === "ArrowDown" && direction.y !== -1) {
@@ -301,6 +339,17 @@ window.addEventListener("keydown", e => {
 });
 
 startBtn.addEventListener("click", () => {
+  const selected = topicSelect.value;
+  if (!selected) {
+    topicWarning.textContent = "Please choose a topic before starting.";
+    return;
+  }
+  topicWarning.textContent = "";
+
+  currentCategoryKey = selected;
+  currentCategoryQuestions = questionsByCategory[currentCategoryKey] || [];
+  currentQuestionIndex = -1;
+
   resetGame();
   if (gameInterval) clearInterval(gameInterval);
   gameInterval = setInterval(gameLoop, gameSpeedMs);
@@ -308,4 +357,3 @@ startBtn.addEventListener("click", () => {
 
 // Initial static draw
 resetGame();
-
