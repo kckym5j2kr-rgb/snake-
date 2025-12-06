@@ -39,11 +39,7 @@ let isGameOver = false;
 
 // Progress (correct answers in this run)
 let correctThisRun = 0;
-const maxProgressQuestions = 100;
-
-
-let currentLevel = 1;
-const maxLevels = 10;
+const maxProgressQuestions = 20;
 
 // Quiz state loaded from JSON
 let questionsByCategory = {};
@@ -80,13 +76,10 @@ function vibrate(pattern) {
 function setProgress(correctCount) {
   correctThisRun = correctCount;
   const capped = Math.min(correctThisRun, maxProgressQuestions);
-  const percent = Math.round((capped / maxProgressQuestions) * 100);
+  const percent = (capped / maxProgressQuestions) * 100;
   levelFill.style.height = percent + "%";
-  levelText.textContent = percent + "%";
+  levelText.textContent = capped + " / " + maxProgressQuestions;
 }
-
-
-
 
 function resetGame() {
   score = 0;
