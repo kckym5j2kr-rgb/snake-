@@ -61,9 +61,9 @@ let pendingQuestion = false;
 
 // Map topic values from <select> to JSON file paths
 const topicToFile = {
-  History: "questions/history.json",
-  Geography: "questions/geography.json",
-  Culture: "questions/culture.json"
+  History: "questions-history.json",
+  Geography: "questions-geography.json",
+  Culture: "questions-culture.json"
 };
 
 // ---------- Helpers ----------
