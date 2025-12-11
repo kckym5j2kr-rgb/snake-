@@ -5,36 +5,42 @@
   <title>Culture Snake / Comecocos Quiz</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: #000018;
-      color: #fefefe;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      height: 100vh;
-    }
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #000018;
+  color: #fefefe;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* center vertically with some padding */
+  justify-content: flex-start;
+  min-height: 100vh;
+  padding-top: 16px;
+}
 
-    h1 {
-      margin: 16px 0 4px;
-      font-size: 1.4rem;
-      text-align: center;
-    }
+#controls {
+  margin-top: 16px;
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
 
-    #info {
-      margin-bottom: 8px;
-      font-size: 0.9rem;
-      opacity: 0.85;
-      text-align: center;
-      max-width: 480px;
-    }
+#game-row {
+  margin: 16px 0;
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  justify-content: center;
+}
 
-    #scoreboard {
-      margin-bottom: 8px;
-      font-size: 1rem;
-    }
+#start-btn {
+  margin: 24px auto 0;
+  display: block;
+}
 
     /* topic on top, centered column */
     #controls {
