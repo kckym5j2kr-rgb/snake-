@@ -101,6 +101,205 @@
       "text": "Which ancient code of laws is associated with a Babylonian ruler and the phrase \"an eye for an eye\"?",
       "options": ["Code of Hammurabi", "Twelve Tables", "Magna Carta"],
       "correctIndex": 0
+    },
+     "text": "Which empire was ruled for centuries from the city of Constantinople (now Istanbul)?",
+      "options": ["Byzantine Empire", "Frankish Empire", "Mughal Empire"],
+      "correctIndex": 0
+    },
+    {
+      "text": "Which 14th‑century pandemic killed millions of people across Europe and is known as the Black Death?",
+      "options": ["Influenza", "Bubonic plague", "Typhus"],
+      "correctIndex": 1
+    },
+    {
+      "text": "The Hundred Years’ War was primarily fought between which two kingdoms?",
+      "options": ["Spain and Portugal", "England and France", "Sweden and Denmark"],
+      "correctIndex": 1
+    },
+    {
+      "text": "Which event in 1789 is commonly taken as the beginning of the French Revolution?",
+      "options": ["Storming of the Bastille", "Battle of Waterloo", "Execution of Louis XVI"],
+      "correctIndex": 0
+    },
+    {
+      "text": "Which king of the Franks was crowned Emperor of the Romans in 800 CE?",
+      "options": ["Charlemagne", "Louis XIV", "Frederick the Great"],
+      "correctIndex": 0
+    },
+    {
+      "text": "Which treaty signed in 1648 is often said to have established the modern system of European sovereign states?",
+      "options": ["Treaty of Versailles", "Peace of Westphalia", "Treaty of Utrecht"],
+      "correctIndex": 1
+    },
+    {
+      "text": "Which powerful maritime republic was a major trading hub in the Mediterranean and Adriatic during the late Middle Ages and Renaissance?",
+      "options": ["Venice", "Vienna", "Seville"],
+      "correctIndex": 0
+    },
+    {
+      "text": "Which Portuguese explorer was the first European to reach India by sea around Africa?",
+      "options": ["Christopher Columbus", "Vasco da Gama", "Ferdinand Magellan"],
+      "correctIndex": 1
+    },
+    {
+      "text": "Which 1588 naval defeat marked the decline of Spanish sea power and a rise in English influence?",
+      "options": ["Battle of Trafalgar", "Defeat of the Spanish Armada", "Battle of Lepanto"],
+      "correctIndex": 1
+    },
+    {
+      "text": "Which 16th‑century religious movement split Western Christianity and led to the rise of Protestant churches?",
+      "options": ["Counter‑Reformation", "Protestant Reformation", "Great Schism"],
+      "correctIndex": 1
+    },
+    {
+      "text": "Which German monk is associated with the Ninety‑Five Theses and criticism of indulgences in 1517?",
+      "options": ["Martin Luther", "John Calvin", "Jan Hus"],
+      "correctIndex": 0
+    },
+    {
+      "text": "Which war from 1618 to 1648 devastated much of Central Europe and ended with the Peace of Westphalia?",
+      "options": ["Thirty Years’ War", "Seven Years’ War", "War of the Spanish Succession"],
+      "correctIndex": 0
+    },
+    {
+      "text": "Which 18th‑century intellectual movement emphasized reason, science, and individual rights in Europe?",
+      "options": ["Romanticism", "Enlightenment", "Scholasticism"],
+      "correctIndex": 1
+    },
+    {
+      "text": "Which military leader became Emperor of the French and led major campaigns across Europe in the early 19th century?",
+      "options": ["Napoleon Bonaparte", "Duke of Wellington", "Otto von Bismarck"],
+      "correctIndex": 0
+    },
+    {
+      "text": "Which 1815 meeting of the great powers attempted to restore order in Europe after the Napoleonic Wars?",
+      "options": ["Congress of Vienna", "Treaty of Tordesillas", "Yalta Conference"],
+      "correctIndex": 0
+    },
+    {
+      "text": "Which 19th‑century statesman is known as the “Iron Chancellor” and key architect of German unification?",
+      "options": ["Giuseppe Garibaldi", "Otto von Bismarck", "Klemens von Metternich"],
+      "correctIndex": 1
+    },
+    {
+      "text": "Which kingdom played the leading role in the political unification of Italy in the 19th century?",
+      "options": ["Kingdom of Sardinia (Piedmont)", "Kingdom of Bavaria", "Kingdom of Sweden"],
+      "correctIndex": 0
+    },
+    {
+      "text": "Whose assassination in Sarajevo in 1914 triggered the diplomatic crisis that led to World War I?",
+      "options": ["Archduke Franz Ferdinand", "Tsar Nicholas II", "Kaiser Wilhelm II"],
+      "correctIndex": 0
+    },
+    {
+      "text": "Which alliance did Germany, Austria‑Hungary, and the Ottoman Empire belong to during World War I?",
+      "options": ["Allied Powers", "Central Powers", "Triple Entente"],
+      "correctIndex": 1
+    },
+    {
+      "text": "Which 1919 treaty formally ended the war between Germany and the Allied Powers after World War I?",
+      "options": ["Treaty of Brest‑Litovsk", "Treaty of Versailles", "Treaty of Paris"],
+      "correctIndex": 1
+    },
+    {
+      "text": "Which Italian leader founded a fascist regime and ruled his country as a dictator in the interwar period?",
+      "options": ["Benito Mussolini", "Francisco Franco", "Joseph Stalin"],
+      "correctIndex": 0
+    },
+    {
+      "text": "In which year did Germany invade Poland, starting World War II in Europe?",
+      "options": ["1914", "1939", "1945"],
+      "correctIndex": 1
+    },
+    {
+      "text": "What name is given to the Allied landings in Normandy in June 1944?",
+      "options": ["Operation Barbarossa", "Operation Overlord (D‑Day)", "Operation Torch"],
+      "correctIndex": 1
+    },
+    {
+      "text": "Which term did Winston Churchill popularize to describe the division of Europe into Western and Soviet spheres after World War II?",
+      "options": ["Iron Curtain", "Berlin Line", "Red Wall"],
+      "correctIndex": 0
+    },
+    {
+      "text": "Which 1948–1949 crisis saw land routes to West Berlin blocked and supplies flown in by air?",
+      "options": ["Cuban Missile Crisis", "Berlin Blockade and Airlift", "Suez Crisis"],
+      "correctIndex": 1
+    },
+    {
+      "text": "The Treaty of Rome of 1957 created a community that became a forerunner of which modern organization?",
+      "options": ["NATO", "European Union", "Council of Europe"],
+      "correctIndex": 1
+    },
+    {
+      "text": "In which country did the Solidarity trade union become a major force in ending communist rule in the 1980s?",
+      "options": ["Hungary", "Poland", "Bulgaria"],
+      "correctIndex": 1
+    },
+    {
+      "text": "Which multinational state in southeastern Europe broke up in the 1990s into republics such as Croatia, Slovenia, and Serbia?",
+      "options": ["Czechoslovakia", "Yugoslavia", "Austro‑Hungarian Empire"],
+      "correctIndex": 1
+    },
+    {
+      "text": "Which 1998 agreement helped bring an end to most of the violence in Northern Ireland?",
+      "options": ["Good Friday Agreement", "Camp David Accords", "Dayton Agreement"],
+      "correctIndex": 0
+    },
+    {
+      "text": "Which country voted in a 2016 referendum to leave the European Union?",
+      "options": ["Ireland", "United Kingdom", "Denmark"],
+      "correctIndex": 1
+    },
+      {
+      "text": "Which 1555 agreement in the Holy Roman Empire allowed each prince to choose between Lutheranism and Catholicism for his territory?",
+      "options": ["Peace of Augsburg", "Edict of Nantes", "Peace of Westphalia"],
+      "correctIndex": 0
+    },
+    {
+      "text": "Which 1598 decree granted limited toleration to French Protestants (Huguenots) before being revoked by Louis XIV in 1685?",
+      "options": ["Edict of Restitution", "Edict of Nantes", "Act of Supremacy"],
+      "correctIndex": 1
+    },
+    {
+      "text": "Which economic policy, associated with Jean-Baptiste Colbert under Louis XIV, emphasized state regulation and accumulation of bullion through a favorable balance of trade?",
+      "options": ["Mercantilism", "Physiocracy", "Laissez-faire liberalism"],
+      "correctIndex": 0
+    },
+    {
+      "text": "Which 1701–1714 conflict arose over who would inherit the Spanish throne after the death of the childless Charles II of Spain?",
+      "options": ["War of the Austrian Succession", "War of the Spanish Succession", "Seven Years’ War"],
+      "correctIndex": 1
+    },
+    {
+      "text": "Which 18th-century pan-European conflict has been called the first 'world war' due to its fighting in Europe, North America, and Asia?",
+      "options": ["War of Jenkins’ Ear", "Seven Years’ War", "Crimean War"],
+      "correctIndex": 1
+    },
+    {
+      "text": "Which Enlightenment thinker’s concept of separation of powers heavily influenced later constitutional systems in Europe and the Americas?",
+      "options": ["Voltaire", "Montesquieu", "Rousseau"],
+      "correctIndex": 1
+    },
+    {
+      "text": "Which 19th-century diplomatic system sought to maintain the balance of power through periodic conferences among the great powers after 1815?",
+      "options": ["Concert of Europe", "League of Nations", "Holy League"],
+      "correctIndex": 0
+    },
+    {
+      "text": "Which late-19th-century alliance network, designed by Bismarck to isolate France diplomatically, included Germany, Austria-Hungary, and initially Italy?",
+      "options": ["Triple Alliance", "Triple Entente", "League of the Three Emperors"],
+      "correctIndex": 0
+    },
+    {
+      "text": "Which 1951 treaty created a joint authority to manage coal and steel production among six Western European states as a step toward integration?",
+      "options": ["Treaty of Paris (ECSC)", "Treaty of Rome", "Single European Act"],
+      "correctIndex": 0
+    },
+    {
+      "text": "Which 1992 treaty transformed the European Communities into the European Union and introduced the framework for a common currency?",
+      "options": ["Treaty of Maastricht", "Treaty of Amsterdam", "Treaty of Nice"],
+      "correctIndex": 0
     }
   ]
 }
