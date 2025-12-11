@@ -5,260 +5,64 @@
   <title>Culture Snake / Comecocos Quiz</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
-body {
-  margin: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background: #000018;
-  color: #fefefe;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  /* center vertically with some padding */
-  justify-content: flex-start;
-  min-height: 100vh;
-  padding-top: 16px;
-}
+    <body>
+  <div id="page">
+    <h1>Culture Snake / Comecocos Quiz</h1>
 
-#controls {
-  margin-top: 16px;
-  margin-bottom: 8px;
-  font-size: 0.9rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 6px;
-}
+    <div id="info">
+      Use the arrow keys to move. Every time you eat a glowing dot, answer a short multiple-choice question.
+    </div>
 
-#game-row {
-  margin: 16px 0;
-  display: flex;
-  gap: 24px;
-  align-items: center;
-  justify-content: center;
-}
+    <div id="scoreboard">
+      Score: <span id="score">0</span> · High score: <span id="high-score">0</span>
+    </div>
 
-#start-btn {
-  margin: 24px auto 0;
-  display: block;
-}
+    <div id="controls">
+      <span id="topic-label">Choose a topic:</span>
+      <select id="topic-select">
+        <option value="">Choose a topic…</option>
+        <option value="history">History</option>
+        <option value="geography">Geography</option>
+        <option value="culture">Culture</option>
+      </select>
+      <div id="topic-warning"></div>
+    </div>
 
-    /* topic on top, centered column */
-    #controls {
-      margin-top: 16px;
-      margin-bottom: 16px;
-      font-size: 0.9rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 6px;
-    }
+    <div id="game-row">
+      <canvas id="game" width="400" height="400"></canvas>
 
-    #topic-select {
-      padding: 4px 6px;
-      min-width: 260px;
-      border-radius: 4px;
-      border: 1px solid #1affff;
-      background: #020230;
-      color: #fefefe;
-    }
+      <div id="level-box">
+        <div id="level-label">Progress</div>
+        <div id="level-bar">
+          <div id="level-fill"></div>
+        </div>
+        <div id="level-text">0%</div>
+      </div>
+    </div>
 
-    #topic-label {
-      opacity: 0.9;
-    }
+    <button id="start-btn">Start / Restart</button>
+  </div>
 
-    #topic-warning {
-      font-size: 0.8rem;
-      color: #ff8080;
-      min-height: 1em;
-      text-align: center;
-    }
+  <!-- Quiz modal -->
+  <div id="quiz-modal">
+    <div id="quiz-box">
+      <div id="quiz-question"></div>
+      <div id="quiz-options"></div>
+      <div id="quiz-feedback"></div>
+    </div>
+  </div>
 
-    /* board in the middle */
-    #game-row {
-      margin: 16px 0;
-      display: flex;
-      gap: 16px;
-      align-items: center;
-      justify-content: center;
-    }
+  <!-- Level-up modal -->
+  <div id="levelup-modal">
+    <div id="levelup-box">
+      <h2 id="levelup-title">Level up!</h2>
+      <p id="levelup-message">You reached 50 points!</p>
+      <button id="levelup-close">Continue</button>
+    </div>
+  </div>
 
-    #game {
-      background: #020230;
-      border: 2px solid #1affff;
-      box-shadow: 0 0 12px #1affff;
-    }
-
-    #level-box {
-      font-size: 0.8rem;
-      text-align: center;
-    }
-
-    #level-label {
-      margin-bottom: 2px;
-    }
-
-    #level-bar {
-      width: 16px;
-      height: 200px;
-      border: 1px solid #1affff;
-      background: #020230;
-      border-radius: 8px;
-      overflow: hidden;
-      margin: 4px auto;
-      display: flex;
-      align-items: flex-end;
-    }
-
-    #level-fill {
-      width: 100%;
-      height: 0%;
-      background: linear-gradient(#1affff, #00ff7f);
-    }
-
-    #level-text {
-      margin-top: 2px;
-    }
-
-    /* start button under the board */
-    #start-btn {
-      margin-top: 16px;
-      padding: 6px 14px;
-      border-radius: 4px;
-      border: 1px solid #1affff;
-      background: #020230;
-      color: #fefefe;
-      cursor: pointer;
-    }
-
-    #start-btn:hover {
-      background: #041a4a;
-    }
-
-    /* Quiz modal */
-    #quiz-modal {
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.7);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      z-index: 10;
-    }
-
-    #quiz-box {
-      background: #020230;
-      border: 2px solid #1affff;
-      padding: 16px;
-      max-width: 320px;
-      width: 90%;
-      box-shadow: 0 0 12px #1affff;
-      color: #fefefe;
-      font-size: 0.95rem;
-    }
-
-    #quiz-question {
-      margin-bottom: 12px;
-    }
-
-    .quiz-option {
-      display: block;
-      width: 100%;
-      margin-bottom: 6px;
-      padding: 6px 10px;
-      border-radius: 4px;
-      border: 1px solid #1affff;
-      background: #041a4a;
-      color: #fefefe;
-      cursor: pointer;
-      text-align: left;
-    }
-
-    .quiz-option:hover {
-      background: #06246b;
-    }
-
-    .quiz-option.correct {
-      background: #177a3a !important;
-      border-color: #00ff7f !important;
-    }
-
-    .quiz-option.incorrect {
-      background: #8b1a1a !important;
-      border-color: #ff4c4c !important;
-    }
-
-    #quiz-feedback {
-      margin-top: 4px;
-      font-size: 0.85rem;
-      min-height: 1em;
-    }
-
-    /* Level-up modal */
-    #levelup-modal {
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.7);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      z-index: 20;
-    }
-
-    #levelup-box {
-      background: #020230;
-      border: 2px solid #1affff;
-      padding: 18px 20px;
-      max-width: 280px;
-      width: 90%;
-      box-shadow: 0 0 14px #1affff;
-      color: #fefefe;
-      text-align: center;
-      border-radius: 8px;
-    }
-
-    #levelup-box h2 {
-      margin-top: 0;
-      margin-bottom: 8px;
-      font-size: 1.2rem;
-    }
-
-    #levelup-box p {
-      margin-top: 0;
-      margin-bottom: 12px;
-      font-size: 0.95rem;
-    }
-
-    #levelup-close {
-      padding: 6px 14px;
-      border-radius: 4px;
-      border: 1px solid #1affff;
-      background: #041a4a;
-      color: #fefefe;
-      cursor: pointer;
-    }
-
-    #levelup-close:hover {
-      background: #06246b;
-    }
-
-    @media (max-width: 600px) {
-      #game-row {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      #level-bar {
-        height: 120px;
-      }
-
-      #game {
-        max-width: 100%;
-        height: auto;
-      }
-    }
-  </style>
-</head>
-<body>
+  <script src="main.js"></script>
+</body>
   <h1>Culture Snake / Comecocos Quiz</h1>
 
   <div id="info">
