@@ -1,6 +1,6 @@
 // Culture Snake / Comecocos with quiz questions, topics and progress bar
 
-// Canvas and UI
+// ---------- Canvas and UI ----------
 const canvas = document.getElementById("game");
 const ctx = canvas.getContext("2d");
 
@@ -21,20 +21,20 @@ const quizQuestionEl = document.getElementById("quiz-question");
 const quizOptionsEl = document.getElementById("quiz-options");
 const quizFeedbackEl = document.getElementById("quiz-feedback");
 
-// Level-up modal DOM (new)
+// Level-up modal DOM
 const levelupModal = document.getElementById("levelup-modal");
 const levelupTitle = document.getElementById("levelup-title");
 const levelupMessage = document.getElementById("levelup-message");
 const levelupClose = document.getElementById("levelup-close");
 
-// Grid configuration
-const tileSize = 20; // 20px * 20 tiles = 400px
+// ---------- Grid configuration ----------
+const tileSize = 20; // 20px * 20 tiles = 400px (assuming canvas is 400x400)
 const tilesX = canvas.width / tileSize;
 const tilesY = canvas.height / tileSize;
 
-// Game state
+// ---------- Game state ----------
 let snake = [];
-let direction = { x: 1, y: 0 };   // start moving right
+let direction = { x: 1, y: 0 }; // start moving right
 let nextDirection = { x: 1, y: 0 };
 let food = { x: 5, y: 5 };
 let score = 0;
@@ -51,26 +51,22 @@ const maxProgressQuestions = 20;
 let hasReached50 = false;
 let hasReached100 = false;
 
-// Quiz state loaded from JSON
+// ---------- Quiz state and loading ----------
+// Cache of questions already loaded: { History: [...], Geography: [...], ... }
 let questionsByCategory = {};
 let currentCategoryKey = "";
 let currentCategoryQuestions = [];
 let currentQuestionIndex = -1;
 let pendingQuestion = false;
-let questionsLoaded = false;
 
-// Load questions.json once when the page loads
-fetch("questions.json")
-  .then(res => res.json())
-  .then(data => {
-    questionsByCategory = data;
-    questionsLoaded = true;
-  })
-  .catch(err => {
-    console.error("Error loading questions:", err);
-  });
+// Map topic values from <select> to JSON file paths
+const topicToFile = {
+  History: "questions/history.json",
+  Geography: "questions/geography.json",
+  Culture: "questions/culture.json"
+};
 
-// -------- Helpers --------
+// ---------- Helpers ----------
 function randomInt(min, maxExclusive) {
   return Math.floor(Math.random() * (maxExclusive - min)) + min;
 }
@@ -91,12 +87,12 @@ function setProgress(correctCount) {
   levelText.textContent = percent + "%";
 }
 
-// -------- Level-up modal helpers --------
+// ---------- Level-up modal helpers ----------
 function showLevelUp(title, message) {
   levelupTitle.textContent = title;
   levelupMessage.textContent = message;
 
-  // pause game
+  // Pause game
   pendingQuestion = true;
   if (gameInterval) {
     clearInterval(gameInterval);
@@ -117,7 +113,7 @@ function hideLevelUp() {
 
 levelupClose.addEventListener("click", hideLevelUp);
 
-// -------- Game reset --------
+// ---------- Game reset ----------
 function resetGame() {
   score = 0;
   scoreEl.textContent = score;
@@ -156,7 +152,7 @@ function placeFood() {
   }
 }
 
-// -------- Main update & draw --------
+// ---------- Main update & draw ----------
 function update() {
   if (isGameOver || pendingQuestion) return;
 
@@ -204,7 +200,7 @@ function update() {
   drawGame();
 }
 
-// -------- Drawing --------
+// ---------- Drawing ----------
 function drawGame() {
   // Clear board
   ctx.fillStyle = "#020230";
@@ -251,7 +247,7 @@ function drawGame() {
   });
 }
 
-// -------- Game over --------
+// ---------- Game over ----------
 function handleGameOver() {
   isGameOver = true;
   clearInterval(gameInterval);
@@ -272,7 +268,7 @@ function gameLoop() {
   update();
 }
 
-// -------- Quiz logic --------
+// ---------- Quiz logic ----------
 function showNextQuestion() {
   if (!currentCategoryQuestions || currentCategoryQuestions.length === 0) {
     return;
@@ -285,7 +281,8 @@ function showNextQuestion() {
     gameInterval = null;
   }
 
-  currentQuestionIndex = (currentQuestionIndex + 1) % currentCategoryQuestions.length;
+  currentQuestionIndex =
+    (currentQuestionIndex + 1) % currentCategoryQuestions.length;
   const q = currentCategoryQuestions[currentQuestionIndex];
 
   quizQuestionEl.textContent = q.text;
@@ -344,13 +341,23 @@ function handleAnswer(selectedIndex) {
     pendingQuestion = false;
 
     if (!isGameOver && !gameInterval && levelupModal.style.display !== "flex") {
-      // only resume game if no level-up modal is open
+      // Only resume game if no level-up modal is open
       gameInterval = setInterval(gameLoop, gameSpeedMs);
     }
   }, 900);
 }
 
-// -------- Controls & start button --------
+// Start game once questions for the chosen category are loaded
+function startGameWithCurrentCategory() {
+  resetGame();
+
+  if (gameInterval) {
+    clearInterval(gameInterval);
+  }
+  gameInterval = setInterval(gameLoop, gameSpeedMs);
+}
+
+// ---------- Controls & start button ----------
 window.addEventListener("keydown", e => {
   const key = e.key;
   if (["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(key)) {
@@ -369,26 +376,48 @@ window.addEventListener("keydown", e => {
 });
 
 startBtn.addEventListener("click", () => {
-  if (!questionsLoaded) {
-    topicWarning.textContent = "Questions are still loading. Please wait a moment.";
-    return;
-  }
-
   const selected = topicSelect.value;
-  topicWarning.textContent = "";
 
-  if (!selected || !questionsByCategory[selected]) {
+  if (!selected) {
     topicWarning.textContent = "Please choose a topic before starting.";
     return;
   }
 
-  currentCategoryKey = selected;
-  currentCategoryQuestions = questionsByCategory[selected];
-
-  resetGame();
-
-  if (gameInterval) {
-    clearInterval(gameInterval);
+  const file = topicToFile[selected];
+  if (!file) {
+    topicWarning.textContent = "This topic is not configured yet.";
+    return;
   }
-  gameInterval = setInterval(gameLoop, gameSpeedMs);
+
+  topicWarning.textContent = "";
+
+  // If this category was already loaded once, reuse it
+  if (questionsByCategory[selected]) {
+    currentCategoryKey = selected;
+    currentCategoryQuestions = questionsByCategory[selected];
+    startGameWithCurrentCategory();
+    return;
+  }
+
+  // Load questions from the corresponding JSON file
+  topicWarning.textContent = "Loading questions, please wait...";
+  fetch(file)
+    .then(res => {
+      if (!res.ok) {
+        throw new Error("HTTP " + res.status);
+      }
+      return res.json();
+    })
+    .then(data => {
+      // data should be an array of { text, options, correctIndex }
+      questionsByCategory[selected] = data;
+      currentCategoryKey = selected;
+      currentCategoryQuestions = data;
+      topicWarning.textContent = "";
+      startGameWithCurrentCategory();
+    })
+    .catch(err => {
+      console.error("Error loading questions:", err);
+      topicWarning.textContent = "Could not load questions for this topic.";
+    });
 });
