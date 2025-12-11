@@ -24,13 +24,13 @@
     }
 
     h1 {
-      margin: 16px 0 4px;
+      margin: 8px 0 4px;
       font-size: 1.4rem;
       text-align: center;
     }
 
     #info {
-      margin-bottom: 8px;
+      margin-bottom: 4px;
       font-size: 0.9rem;
       opacity: 0.85;
       text-align: center;
@@ -44,8 +44,8 @@
 
     /* topic on top, centered column */
     #controls {
-      margin-top: 12px;
-      margin-bottom: 4px;
+      margin-top: 4px;
+      margin-bottom: 8px;
       font-size: 0.9rem;
       display: flex;
       flex-direction: column;
@@ -73,13 +73,14 @@
       text-align: center;
     }
 
-    /* board + progress centered as a block */
+    /* board + progress centered as a unit */
     #game-row {
-      margin: 16px 0;
-      display: flex;
-      gap: 24px;
+      margin: 12px 0;
+      display: inline-flex;      /* shrink to content width */
+      flex-direction: row;
       align-items: center;
       justify-content: center;
+      gap: 32px;                 /* space between board and bar */
     }
 
     #game {
@@ -319,4 +320,3 @@
   <script src="main.js"></script>
 </body>
 </html>
-
