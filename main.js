@@ -63,7 +63,7 @@ let pendingQuestion = false;
 const topicToFile = {
   history: "questions-history.json",
   geography: "questions-geography.json",
-  culture : "questions-culture.json"
+  culture: "questions-culture.json"
 };
 
 
