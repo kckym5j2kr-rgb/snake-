@@ -48,7 +48,7 @@
     "text": "What is the Japanese art of paper folding called?",
     "options": ["Origami", "Ikebana", "Calligraphy"],
     "correctIndex": 0
-  }
+  },
   {
     "text": "Who painted Guernica?",
     "options": ["Salvador Dalí", "Pablo Picasso", "Joan Miró"],
@@ -63,11 +63,6 @@
     "text": "Which composer wrote 'The Four Seasons'?",
     "options": ["Johann Sebastian Bach", "Wolfgang Amadeus Mozart", "Antonio Vivaldi"],
     "correctIndex": 2
-  },
-  {
-    "text": "Who painted the ceiling of the Sistine Chapel?",
-    "options": ["Leonardo da Vinci", "Michelangelo", "Raphael"],
-    "correctIndex": 1
   },
   {
     "text": "Who wrote 'Hamlet'?",
@@ -98,11 +93,6 @@
     "text": "Who wrote 'Don Quixote'?",
     "options": ["Miguel de Cervantes", "Lope de Vega", "Tirso de Molina"],
     "correctIndex": 0
-  }
-  {
-    "text": "Which composer wrote 'The Four Seasons'?",
-    "options": ["Johann Sebastian Bach", "Wolfgang Amadeus Mozart", "Antonio Vivaldi"],
-    "correctIndex": 2
   },
   {
     "text": "Where is the famous Leaning Tower located?",
@@ -150,4 +140,3 @@
     "correctIndex": 1
   }
 ]
-
