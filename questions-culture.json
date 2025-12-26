@@ -1,1 +1,52 @@
-
+[
+  {
+    "text": "Who painted Guernica?",
+    "options": ["Salvador Dalí", "Pablo Picasso", "Joan Miró"],
+    "correctIndex": 1
+  },
+  {
+    "text": "Who wrote 'Pride and Prejudice'?",
+    "options": ["Jane Austen", "Charlotte Brontë", "George Eliot"],
+    "correctIndex": 0
+  },
+  {
+    "text": "Which composer wrote 'The Four Seasons'?",
+    "options": ["Johann Sebastian Bach", "Wolfgang Amadeus Mozart", "Antonio Vivaldi"],
+    "correctIndex": 2
+  },
+  {
+    "text": "Who painted the ceiling of the Sistine Chapel?",
+    "options": ["Leonardo da Vinci", "Michelangelo", "Raphael"],
+    "correctIndex": 1
+  },
+  {
+    "text": "Who wrote 'Hamlet'?",
+    "options": ["William Shakespeare", "Christopher Marlowe", "Ben Jonson"],
+    "correctIndex": 0
+  },
+  {
+    "text": "Which artist is famous for painting water lilies?",
+    "options": ["Pierre-Auguste Renoir", "Edgar Degas", "Claude Monet"],
+    "correctIndex": 2
+  },
+  {
+    "text": "Who composed the opera 'The Magic Flute'?",
+    "options": ["Ludwig van Beethoven", "Wolfgang Amadeus Mozart", "Richard Wagner"],
+    "correctIndex": 1
+  },
+  {
+    "text": "Who wrote '1984'?",
+    "options": ["Ray Bradbury", "George Orwell", "Aldous Huxley"],
+    "correctIndex": 1
+  },
+  {
+    "text": "Which Renaissance artist sculpted 'David'?",
+    "options": ["Gian Lorenzo Bernini", "Donatello", "Michelangelo"],
+    "correctIndex": 2
+  },
+  {
+    "text": "Who wrote 'Don Quixote'?",
+    "options": ["Miguel de Cervantes", "Lope de Vega", "Tirso de Molina"],
+    "correctIndex": 0
+  }
+]
