@@ -318,7 +318,8 @@ function handleAnswer(selectedIndex) {
 
   if (isCorrect) {
     score += 5;
-    setProgress(correctThisRun + 1);
+    correctThisRun++;  // ← ADD THIS LINE!
+    setProgress(correctThisRun);  // ← CHANGE THIS LINE!
     quizFeedbackEl.textContent = "Correct! +5 points.";
     vibrate(120);
   } else {
@@ -347,6 +348,7 @@ function handleAnswer(selectedIndex) {
     }
   }, 900);
 }
+
 
 // Start game once questions for the chosen category are loaded
 function startGameWithCurrentCategory() {
